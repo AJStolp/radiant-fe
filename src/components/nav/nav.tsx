@@ -9,7 +9,7 @@ export default function Nav(props: NavProps<ReturnedDataProps[]>) {
   })[0];
 
   return (
-    <nav className="bg-white dark:bg-gray-900 fixed w-full z-20 top-0 left-0 border-b border-gray-200 dark:border-gray-600">
+    <nav className="bg-light-background dark:bg-dark-background fixed w-full z-20 top-0 left-0 border-b border-light-secondary dark:border-dark-accent">
       <div className="max-w-screen-xl flex flex-wrap items-center justify-between mx-auto p-4">
         <a href="/" className="flex items-center">
           <img
@@ -20,9 +20,8 @@ export default function Nav(props: NavProps<ReturnedDataProps[]>) {
           <span className="self-center text-2xl font-semibold whitespace-nowrap dark:text-white"></span>
         </a>
         <div className="flex md:order-2">
-          {/* {callToAction} */}
           <Button
-            className="text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-4 py-2 text-center mr-3 md:mr-0 dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800"
+            className="text-dark-text bg-light-primary hover:bg-light-accent focus:ring-4 focus:outline-none focus:ring-light-secondary font-medium rounded-lg text-sm px-4 py-2 text-center mr-3 md:mr-0 dark:bg-dark-primary dark:hover:bg-dark-accent dark:focus:ring-dark-secondary"
             aria-label={""}
             content={callToAction}
           />
