@@ -1,3 +1,5 @@
+import { Link } from "react-router-dom";
+
 interface NavLinkProps {
   attributes: {
     home: string;
@@ -9,11 +11,11 @@ interface NavLinkProps {
 export default function NavLink(props: NavLinkProps) {
   return (
     <>
-      <ul className="flex flex-col p-4 md:p-0 mt-4 font-medium border border-gray-100 rounded-lg bg-gray-50 md:flex-row md:space-x-8 md:mt-0 md:border-0 md:bg-white dark:bg-gray-800 md:dark:bg-gray-900 dark:border-gray-700">
+      <ul className="flex flex-col p-4 md:p-0 mt-4 font-medium border rounded-lg bg-light-background dark:bg-dark-background md:flex-row md:space-x-8 md:mt-0 md:border-0 md:bg-light-background md:dark:bg-dark-background dark:border-dark-accent">
         <li>
           <a
             href="/"
-            className="block py-2 pl-3 pr-4 text-white bg-blue-700 rounded md:bg-transparent md:text-blue-700 md:p-0 md:dark:text-blue-500"
+            className="block py-2 pl-3 pr-4 text-light-text bg-light-primary rounded md:bg-transparent md:text-light- md:dark:text-dark-accent"
           >
             {props.attributes.home}
           </a>
@@ -21,7 +23,7 @@ export default function NavLink(props: NavLinkProps) {
         <li>
           <a
             href="/services"
-            className="block py-2 pl-3 pr-4 text-white bg-blue-700 rounded md:bg-transparent md:text-blue-700 md:p-0 md:dark:text-blue-500"
+            className="block py-2 pl-3 pr-4 text-light-text bg-light-primary rounded md:bg-transparent md:text-light-primary md:dark:text-dark-accent"
           >
             {props.attributes.services}
           </a>
@@ -29,7 +31,7 @@ export default function NavLink(props: NavLinkProps) {
         <li>
           <a
             href="/about"
-            className="block py-2 pl-3 pr-4 text-white bg-blue-700 rounded md:bg-transparent md:text-blue-700 md:p-0 md:dark:text-blue-500"
+            className="block py-2 pl-3 pr-4 text-light-text bg-light-primary rounded md:bg-transparent md:text-light-primary md:dark:text-dark-accent"
           >
             {props.attributes.about}
           </a>
