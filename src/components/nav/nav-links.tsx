@@ -1,5 +1,3 @@
-import { Link } from "react-router-dom";
-
 interface NavLinkProps {
   attributes: {
     home: string;
