@@ -1,4 +1,4 @@
-export interface ReturnedDataProps {
+export interface ReturnedHeroDataProps {
   //   data: Array<{
   //     id: number;
   //     attributes: {
@@ -7,9 +7,8 @@ export interface ReturnedDataProps {
   //   }>;
   id: number;
   attributes: {
-    home: string;
-    services: string;
-    about: string;
-    cta: string;
+    headline: string;
+    CTA: string;
+    subheadline: string;
   };
 }

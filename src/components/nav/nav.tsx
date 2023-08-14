@@ -1,9 +1,9 @@
 import { NavProps } from "../../interfaces/nav";
-import { ReturnedDataProps } from "../../interfaces/returned-data";
+import { ReturnedNavDataProps } from "../../interfaces/returned-data/returned-nav-data";
 import Button from "../button/button";
 import NavLink from "./nav-links";
 
-export default function Nav(props: NavProps<ReturnedDataProps[]>) {
+export default function Nav(props: NavProps<ReturnedNavDataProps[]>) {
   const callToAction = props.data.map((item) => {
     return item.attributes.cta;
   })[0];

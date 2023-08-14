@@ -5,6 +5,7 @@ import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import Home from "./layouts/home";
 import { useEffect } from "react";
 import { prefersDarkMode } from "./utilities/utilities";
+import Services from "./layouts/services";
 
 function App() {
   useEffect(() => {
@@ -27,6 +28,7 @@ function App() {
         {" "}
         <Routes>
           <Route exact path="/" element={<Home />}></Route>
+          <Route exact path="/services" element={<Services />}></Route>
         </Routes>
       </Router>
     </>
