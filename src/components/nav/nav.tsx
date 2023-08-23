@@ -1,15 +1,44 @@
+import { useEffect, useState } from "react";
 import { NavProps } from "../../interfaces/nav";
 import { ReturnedNavDataProps } from "../../interfaces/returned-data/returned-nav-data";
 import Button from "../button/button";
 import NavLink from "./nav-links";
 
 export default function Nav(props: NavProps<ReturnedNavDataProps[]>) {
+  const [scrolled, setScrolled] = useState(false);
+
+  const onScrollStyles =
+    "sticky z-20 top-0 left-0 bg-light-background dark:bg-dark-background w-full border-b border-light-secondary dark:border-dark-accent transition-all duration-75 ease-in";
+
   const callToAction = props.data.map((item) => {
     return item.attributes.cta;
   })[0];
 
+  const handleScroll = () => {
+    if (window.scrollY > 0) {
+      setScrolled(true);
+    } else {
+      setScrolled(false);
+    }
+  };
+
+  useEffect(() => {
+    window.addEventListener("scroll", handleScroll);
+    return () => {
+      window.removeEventListener("scroll", handleScroll);
+    };
+  }, []);
+
+  // className="bg-light-background dark:bg-dark-background w-full border-b border-light-secondary dark:border-dark-accent"
+
   return (
-    <nav className="bg-light-background dark:bg-dark-background fixed w-full z-20 top-0 left-0 border-b border-light-secondary dark:border-dark-accent">
+    <nav
+      className={
+        scrolled
+          ? onScrollStyles
+          : "z-20 bg-light-background dark:bg-dark-background w-full border-b border-light-secondary dark:border-dark-accent"
+      }
+    >
       <div className="max-w-screen-xl flex flex-wrap items-center justify-between mx-auto p-4">
         <a href="/" className="flex items-center">
           <img

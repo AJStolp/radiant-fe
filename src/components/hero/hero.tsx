@@ -22,7 +22,7 @@ export default function Hero(props: HeroProps<ReturnedHeroDataProps[]>) {
               </p>
               <a
                 href="#"
-                className="text-light-text dark:text-dark-text bg-light-primary hover:bg-light-accent focus:ring-4 focus:outline-none focus:ring-light-secondary font-medium rounded-lg text-sm px-4 py-2 text-center mr-3 md:mr-0 dark:bg-dark-primary dark:hover:bg-dark-accent dark:focus:ring-dark-secondary"
+                className="text-dark-text dark:text-dark-text bg-light-primary hover:bg-light-accent focus:ring-4 focus:outline-none focus:ring-light-secondary font-medium rounded-lg text-sm px-4 py-2 text-center mr-3 md:mr-0 dark:bg-dark-primary dark:hover:bg-dark-accent dark:focus:ring-dark-secondary"
               >
                 {item.attributes.CTA}
               </a>

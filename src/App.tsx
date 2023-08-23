@@ -14,7 +14,7 @@ function App() {
     }
   }, []);
 
-  const { fetchedData, error } = useFetch({
+  const { fetchedNavData, error } = useFetch({
     url: "http://localhost:1337/api/navigations",
   });
   if (error) {
@@ -23,12 +23,12 @@ function App() {
 
   return (
     <>
-      <Nav data={fetchedData} />
+      <Nav data={fetchedNavData} />
       <Router>
         {" "}
         <Routes>
-          <Route exact path="/" element={<Home />}></Route>
-          <Route exact path="/services" element={<Services />}></Route>
+          <Route path="/" element={<Home />}></Route>
+          <Route path="/services" element={<Services />}></Route>
         </Routes>
       </Router>
     </>

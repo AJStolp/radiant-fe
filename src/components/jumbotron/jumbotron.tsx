@@ -1,6 +1,12 @@
 import { ReturnedJumboDataProps } from "../../interfaces/returned-data/returned-jumbo-data";
 
-export default function Jumbotron(props: ReturnedJumboDataProps[]) {
+interface JumbotronProps<T> {
+  data: T;
+}
+
+export default function Jumbotron(
+  props: JumbotronProps<ReturnedJumboDataProps[]>
+) {
   return (
     <section className="bg-white dark:bg-gray-900">
       <div className="py-8 px-4 mx-auto max-w-screen-xl lg:py-16">
