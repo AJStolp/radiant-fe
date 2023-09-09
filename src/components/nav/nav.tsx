@@ -1,8 +1,7 @@
 import { useEffect, useState } from "react";
 import { NavProps } from "../../interfaces/nav";
 import { ReturnedNavDataProps } from "../../interfaces/returned-data/returned-nav-data";
-import Button from "../button/button";
-import NavLink from "./nav-links";
+import NavItem from "./nav-item";
 
 export default function Nav(props: NavProps<ReturnedNavDataProps[]>) {
   const [scrolled, setScrolled] = useState(false);
@@ -29,8 +28,6 @@ export default function Nav(props: NavProps<ReturnedNavDataProps[]>) {
     };
   }, []);
 
-  // className="bg-light-background dark:bg-dark-background w-full border-b border-light-secondary dark:border-dark-accent"
-
   return (
     <nav
       className={
@@ -46,18 +43,21 @@ export default function Nav(props: NavProps<ReturnedNavDataProps[]>) {
             className="h-8 mr-3"
             alt="Radiant Logo"
           />
-          <span className="self-center text-2xl font-semibold whitespace-nowrap dark:text-white"></span>
+          <span className="self-center text-2xl  whitespace-nowrap dark:text-white"></span>
         </a>
         <div className="flex md:order-2">
-          <Button
-            className="text-dark-text bg-light-primary hover:bg-light-accent focus:ring-4 focus:outline-none focus:ring-light-secondary font-medium rounded-lg text-sm px-4 py-2 text-center mr-3 md:mr-0 dark:bg-dark-primary dark:hover:bg-dark-accent dark:focus:ring-dark-secondary"
+          <a
+            className="text-dark-text bg-light-primary hover:bg-light-accent dark:hover:bg-light-accent px-4 py-2 text-center mr-3 md:mr-0 dark:bg-dark-primary"
             aria-label={""}
             content={callToAction}
-          />
+            href="https://booking.mangomint.com/187467"
+          >
+            {callToAction}
+          </a>
           <button
             data-collapse-toggle="navbar-sticky"
             type="button"
-            className="inline-flex items-center p-2 w-10 h-10 justify-center text-sm text-gray-500 rounded-lg md:hidden hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-gray-200 dark:text-gray-400 dark:hover:bg-gray-700 dark:focus:ring-gray-600"
+            className="inline-flex items-center p-2 w-10 h-10 justify-center rounded-lg md:hidden "
             aria-controls="navbar-sticky"
             aria-expanded="false"
           >
@@ -84,13 +84,10 @@ export default function Nav(props: NavProps<ReturnedNavDataProps[]>) {
           id="navbar-sticky"
         >
           {props.data.map((item, index) => (
-            <NavLink
-              key={index} // Don't forget to add a unique key when rendering a list of components
+            <NavItem
+              key={index}
               attributes={{
-                home: item.attributes.home,
-                services: item.attributes.services,
-                about: item.attributes.about,
-                // Add other attributes as needed
+                navitem: item.attributes.navitem,
               }}
             />
           ))}

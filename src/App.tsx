@@ -1,11 +1,12 @@
 import "./App.css";
 import Nav from "./components/nav/nav";
 import useFetch from "./hooks/api";
-import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
+import { Routes, Route } from "react-router-dom";
 import Home from "./layouts/home";
 import { useEffect } from "react";
 import { prefersDarkMode } from "./utilities/utilities";
 import Services from "./layouts/services";
+import About from "./layouts/about";
 
 function App() {
   useEffect(() => {
@@ -15,7 +16,7 @@ function App() {
   }, []);
 
   const { fetchedNavData, error } = useFetch({
-    url: "http://localhost:1337/api/navigations",
+    url: "http://localhost:1337/api/navigations?populate=*",
   });
   if (error) {
     return <p>{error}</p>;
@@ -24,13 +25,11 @@ function App() {
   return (
     <>
       <Nav data={fetchedNavData} />
-      <Router>
-        {" "}
-        <Routes>
-          <Route path="/" element={<Home />}></Route>
-          <Route path="/services" element={<Services />}></Route>
-        </Routes>
-      </Router>
+      <Routes>
+        <Route path="/home" element={<Home />} />
+        <Route path="/services" element={<Services />} />
+        <Route path="/about" element={<About />} />
+      </Routes>
     </>
   );
 }

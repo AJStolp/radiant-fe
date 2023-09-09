@@ -4,7 +4,9 @@ import { FetchProps } from "../interfaces/fetch";
 import { ReturnedNavDataProps } from "../interfaces/returned-data/returned-nav-data";
 import { ReturnedComponentProps } from "../interfaces/returned-data/returned-components";
 import { ReturnedHeroDataProps } from "../interfaces/returned-data/returned-hero-data";
-import { ReturnedJumboDataProps } from "../interfaces/returned-data/returned-jumbo-data";
+// import { ReturnedJumboDataProps } from "../interfaces/returned-data/returned-jumbo-data";
+import { ReturnedAboutDataProps } from "@interfaces/returned-data/returned-about-data";
+import { ReturnedAccordionDataProps } from "@interfaces/returned-data/returned-accordion-data";
 
 export default function getNavigation(props: FetchProps) {
   const [error, setError] = useState(null);
@@ -14,11 +16,19 @@ export default function getNavigation(props: FetchProps) {
   const [fetchedHeroData, setFetchedHeroData] = useState<
     ReturnedHeroDataProps[]
   >([]);
-  const [fetchedJumboData, setFetchedJumboData] = useState<
-    ReturnedJumboDataProps[]
-  >([]);
+  // const [fetchedJumboData, setFetchedJumboData] = useState<
+  //   ReturnedJumboDataProps[]
+  // >([]);
   const [fetchedComponent, setFetchedComponent] = useState<
     ReturnedComponentProps[]
+  >([]);
+
+  const [fetchedAboutData, setFetchedAboutData] = useState<
+    ReturnedAboutDataProps[]
+  >([]);
+
+  const [fetchedAccordionData, setFetchedAccordionData] = useState<
+    ReturnedAccordionDataProps[]
   >([]);
 
   useEffect(() => {
@@ -28,7 +38,9 @@ export default function getNavigation(props: FetchProps) {
         setFetchedNavData(data.data);
         setFetchedComponent(data.data);
         setFetchedHeroData(data.data);
-        setFetchedJumboData(data.data);
+        // setFetchedJumboData(data.data);
+        setFetchedAboutData(data.data);
+        setFetchedAccordionData(data.data);
       })
       .catch((error) => setError(error));
   }, [props.url]);
@@ -41,7 +53,9 @@ export default function getNavigation(props: FetchProps) {
     fetchedNavData,
     fetchedComponent,
     fetchedHeroData,
-    fetchedJumboData,
+    // fetchedJumboData,
+    fetchedAboutData,
+    fetchedAccordionData,
     error,
   };
 }
