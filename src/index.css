@@ -3,6 +3,8 @@
 @import 'tailwindcss/components';
 @import 'tailwindcss/utilities';
 
+@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700&family=Source+Sans+3&display=swap');
+
 * {
   box-sizing: border-box;
 }
@@ -11,3 +13,45 @@ html, body {
   margin: 0;
   padding: 0;
 }
+
+
+@layer base {
+
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6 {
+    font-family: 'Playfair Display', serif;
+  }
+
+  p, a {
+    font-family: 'Source Sans 3', sans-serif;
+    font-weight: 400;
+    font-size: 18px;
+  }
+
+  a  {
+    border-radius: 6px;
+  }
+
+  :focus {
+    outline: 4px solid #ffbf59;
+  }
+
+  button {
+    padding: 1em 2em;
+    border-radius: 6px;
+    transition: transform ease 0.2s, box-shadow ease 0.2s;
+    display: inline-block;
+    font-size: 18px;
+    z-index: 2;
+    white-space: nowrap;
+  }
+
+  a:hover, button:hover {
+    transform: translate(0, -3px);
+    text-decoration: underline;
+  }
+} 
