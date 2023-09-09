@@ -15,8 +15,10 @@ export default function RAccordion(
         return item.attributes.accordion.map((accordion, innerIndex) => (
           <Accordion collapseAll className="my-4" key={accordion.id}>
             <Accordion.Panel>
-              <Accordion.Title>{accordion.title}</Accordion.Title>
-              <Accordion.Content>
+              <Accordion.Title className="dark:bg-dark-background dark:hover:bg-dark-accent">
+                {accordion.title}
+              </Accordion.Title>
+              <Accordion.Content className="bg-light-background dark:bg-dark-background">
                 <ReactMarkdown
                   components={{
                     ul: ({ node, ...props }) => (

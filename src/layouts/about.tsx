@@ -20,10 +20,10 @@ export default function About() {
                 alt="Bonnie Avatar"
               />
               <h3 className="mb-1 text-2xl  tracking-tight dark:text-white">
-                <a href="#">{team.name}</a>
+                {team.name}
               </h3>
               <p>{team.about}</p>
-              <ul className="flex justify-center mt-4 space-x-4">
+              {/* <ul className="flex justify-center mt-4 space-x-4">
                 <li>
                   <a href="#">
                     <svg
@@ -31,9 +31,7 @@ export default function About() {
                       fill="currentColor"
                       viewBox="0 0 24 24"
                       aria-hidden="true"
-                    >
-                      {/* SVG Path */}
-                    </svg>
+                    ></svg>
                   </a>
                 </li>
                 <li>
@@ -43,9 +41,7 @@ export default function About() {
                       fill="currentColor"
                       viewBox="0 0 24 24"
                       aria-hidden="true"
-                    >
-                      {/* SVG Path */}
-                    </svg>
+                    ></svg>
                   </a>
                 </li>
                 <li>
@@ -55,9 +51,7 @@ export default function About() {
                       fill="currentColor"
                       viewBox="0 0 24 24"
                       aria-hidden="true"
-                    >
-                      {/* SVG Path */}
-                    </svg>
+                    ></svg>
                   </a>
                 </li>
                 <li>
@@ -67,12 +61,10 @@ export default function About() {
                       fill="currentColor"
                       viewBox="0 0 24 24"
                       aria-hidden="true"
-                    >
-                      {/* SVG Path */}
-                    </svg>
+                    ></svg>
                   </a>
                 </li>
-              </ul>
+              </ul> */}
             </div>
           </div>
         ));
