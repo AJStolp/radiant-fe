@@ -1,5 +1,5 @@
 import { ReturnedAccordionDataProps } from "@interfaces/returned-data/returned-accordion-data";
-import React, { useState } from "react";
+import { useState } from "react";
 import { Accordion } from "flowbite-react";
 import ReactMarkdown from "react-markdown";
 
@@ -24,7 +24,7 @@ export default function RAccordion(
 
   return (
     <>
-      {props.data.flatMap((item, outerIndex) => {
+      {props.data.flatMap((item) => {
         return item.attributes.accordion.map((accordion, innerIndex) => (
           <Accordion
             collapseAll

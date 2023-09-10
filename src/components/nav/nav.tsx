@@ -56,8 +56,8 @@ export default function Nav(props: NavProps<ReturnedNavDataProps[]>) {
           {/* <Button>Get started</Button> */}
           <Navbar.Toggle />
         </div>
-        {props.data.map((item, outterIndex) => {
-          return item.attributes.navitem.map((navItem, innerIndex) => {
+        {props.data.map((item) => {
+          return item.attributes.navitem.map((navItem) => {
             return (
               <Navbar.Collapse key={navItem.id}>
                 <Navbar.Link
