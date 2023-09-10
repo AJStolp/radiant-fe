@@ -10,7 +10,7 @@ export default function Services() {
     return <p>{error}</p>;
   }
 
-  const mainContent = fetchedAccordionData.map((item, index) => {
+  const mainContent = fetchedAccordionData.map((item) => {
     return (
       <section key={item.id}>
         <h1 className="text-light-text dark:text-dark-text mb-4 text-4xl py-2">
