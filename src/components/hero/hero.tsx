@@ -22,7 +22,7 @@ export default function Hero(props: HeroProps<ReturnedHeroDataProps[]>) {
               </p>
               <a
                 href="https://booking.mangomint.com/187467"
-                className="text-dark-text bg-light-primary p-4 hover:bg-light-accent dark:hover:bg-light-accent"
+                className="text-dark-text bg-light-primary p-4 hover:bg-light-accent dark:hover:bg-light-accent cta"
               >
                 {item.attributes.CTA}
               </a>
