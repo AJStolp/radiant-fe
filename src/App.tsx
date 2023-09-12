@@ -13,7 +13,7 @@ function App() {
   const location = useLocation();
 
   useLayoutEffect(() => {
-    setIsLoading(true); // Start with loading animation
+    setIsLoading(() => isLoading === false); // Start with loading animation
 
     const loadingTimeout = setTimeout(() => {
       setIsLoading(false); // End loading animation
@@ -39,7 +39,9 @@ function App() {
   }
 
   return (
-    <div className="app fade-in-animation">
+    <div
+      className={`app ${isLoading ? "fade-in-animation" : "fade-in-animation"}`}
+    >
       <Nav data={fetchedNavData} />
       <Routes>
         <Route path="/home" element={<Home />} />
