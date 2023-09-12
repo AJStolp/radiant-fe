@@ -14,6 +14,26 @@ html, body {
   padding: 0;
 }
 
+/* animations.css */
+
+/* App.css */
+
+@keyframes fade-in {
+  from {
+    opacity: 0;
+  }
+
+  to {
+    opacity: 1;
+  }
+}
+
+
+.fade-in-animation {
+  animation: fade-in 0.5s ease-in-out;
+  animation-fill-mode: forwards;
+}
+
 
 @layer base {
 
