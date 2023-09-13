@@ -13,6 +13,10 @@ export default function Nav(props: NavProps<ReturnedNavDataProps[]>) {
     return item.attributes.cta;
   })[0];
 
+  const logoImageUrls = props.data.map(
+    (item) => `http://localhost:1337${item.attributes.logo.data.attributes.url}`
+  );
+
   const handleScroll = () => {
     if (window.scrollY > 0) {
       setScrolled(true);
@@ -30,7 +34,6 @@ export default function Nav(props: NavProps<ReturnedNavDataProps[]>) {
 
   return (
     <>
-      {}
       <Navbar
         fluid
         className={
@@ -40,11 +43,14 @@ export default function Nav(props: NavProps<ReturnedNavDataProps[]>) {
         }
       >
         <Navbar.Brand href="/home">
-          <img
-            alt="Flowbite React Logo"
-            className="mr-3 h-6 sm:h-9"
-            src="src/assets/radiant-logo.png"
-          />
+          {logoImageUrls.map((logoUrl, index) => (
+            <img
+              key={index}
+              alt={`Radiant Hair Salon Logo ${index}`}
+              className="mr-3 h-6 sm:h-9"
+              src={logoUrl}
+            />
+          ))}
         </Navbar.Brand>
         <div className="flex md:order-2">
           <a

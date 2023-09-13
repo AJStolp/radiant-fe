@@ -23,7 +23,7 @@ export interface ReturnedHeroDataProps {
               hash: string;
               mime: string;
               name: string;
-              path: string | null; // You might need to adjust this based on your data
+              path: string | null;
               size: number;
               width: number;
               height: number;
@@ -34,7 +34,7 @@ export interface ReturnedHeroDataProps {
               hash: string;
               mime: string;
               name: string;
-              path: string | null; // You might need to adjust this based on your data
+              path: string | null;
               size: number;
               width: number;
               height: number;
@@ -45,7 +45,7 @@ export interface ReturnedHeroDataProps {
               hash: string;
               mime: string;
               name: string;
-              path: string | null; // You might need to adjust this based on your data
+              path: string | null;
               size: number;
               width: number;
               height: number;
@@ -56,7 +56,7 @@ export interface ReturnedHeroDataProps {
               hash: string;
               mime: string;
               name: string;
-              path: string | null; // You might need to adjust this based on your data
+              path: string | null;
               size: number;
               width: number;
               height: number;
@@ -69,7 +69,7 @@ export interface ReturnedHeroDataProps {
           url: string;
           previewUrl: string | null;
           provider: string;
-          provider_metadata: any | null; // You might need to adjust this based on your data
+          provider_metadata: any | null;
           createdAt: string;
           updatedAt: string;
         };
