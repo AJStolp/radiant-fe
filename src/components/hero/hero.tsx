@@ -8,6 +8,8 @@ export default function Hero(props: HeroProps<ReturnedHeroDataProps[]>) {
   return (
     <>
       {props.data.map((item, index) => {
+        const imageurl = `http://localhost:1337${item.attributes.heroimage.data.attributes.url}`;
+
         return (
           <div
             key={index}
@@ -29,7 +31,7 @@ export default function Hero(props: HeroProps<ReturnedHeroDataProps[]>) {
             </div>
             <div className="md:w-1/2">
               <img
-                src="src/assets/hair-salon.png"
+                src={imageurl}
                 alt="Hero Image"
                 className="w-full h-auto md:h-full"
               />

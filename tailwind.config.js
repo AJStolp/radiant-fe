@@ -24,7 +24,7 @@ export default {
           accent: "#bf7300",
         },
         focus: {
-          outline: "4px solid #ffbf59", // Customize the outline color
+          outline: "4px solid #ffbf59",
         },
       },
       fontFamily: {
