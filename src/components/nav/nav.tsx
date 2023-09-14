@@ -59,7 +59,6 @@ export default function Nav(props: NavProps<ReturnedNavDataProps[]>) {
           >
             {callToAction}
           </a>
-          {/* <Button>Get started</Button> */}
           <Navbar.Toggle />
         </div>
         {props.data.map((item) => {
