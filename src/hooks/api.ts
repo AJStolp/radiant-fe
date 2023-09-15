@@ -2,7 +2,6 @@ import { useEffect, useState } from "react";
 import axios from "axios";
 import { FetchProps } from "../interfaces/fetch";
 import { ReturnedNavDataProps } from "../interfaces/returned-data/returned-nav-data";
-import { ReturnedComponentProps } from "../interfaces/returned-data/returned-components";
 import { ReturnedHeroDataProps } from "../interfaces/returned-data/returned-hero-data";
 // import { ReturnedJumboDataProps } from "../interfaces/returned-data/returned-jumbo-data";
 import { ReturnedAboutDataProps } from "@interfaces/returned-data/returned-about-data";
@@ -19,9 +18,6 @@ export default function getNavigation(props: FetchProps) {
   // const [fetchedJumboData, setFetchedJumboData] = useState<
   //   ReturnedJumboDataProps[]
   // >([]);
-  const [fetchedComponent, setFetchedComponent] = useState<
-    ReturnedComponentProps[]
-  >([]);
 
   const [fetchedAboutData, setFetchedAboutData] = useState<
     ReturnedAboutDataProps[]
@@ -36,7 +32,6 @@ export default function getNavigation(props: FetchProps) {
       .get(props.url)
       .then(({ data }) => {
         setFetchedNavData(data.data);
-        setFetchedComponent(data.data);
         setFetchedHeroData(data.data);
         // setFetchedJumboData(data.data);
         setFetchedAboutData(data.data);
@@ -51,7 +46,6 @@ export default function getNavigation(props: FetchProps) {
 
   return {
     fetchedNavData,
-    fetchedComponent,
     fetchedHeroData,
     // fetchedJumboData,
     fetchedAboutData,
