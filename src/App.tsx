@@ -18,7 +18,7 @@ function App() {
     const loadingTimeout = setTimeout(() => {
       setIsLoading(false); // End loading animation
       clearTimeout(loadingTimeout);
-    }, 500); // Adjust the duration as needed
+    }, 500);
 
     return () => {
       clearTimeout(loadingTimeout);
