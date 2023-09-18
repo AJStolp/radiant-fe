@@ -8,7 +8,9 @@ export default function Hero(props: HeroProps<ReturnedHeroDataProps[]>) {
   return (
     <>
       {props.data.map((item, index) => {
-        const imageurl = `${item.attributes.heroimage.data.attributes.url}`;
+        const imageUrl = `${import.meta.env.VITE_BE_API_URL}${
+          item.attributes.heroimage.data.attributes.url
+        }`;
 
         return (
           <div
@@ -29,7 +31,7 @@ export default function Hero(props: HeroProps<ReturnedHeroDataProps[]>) {
             </div>
             <div className='md:w-1/2'>
               <img
-                src={imageurl}
+                src={imageUrl}
                 alt='Hero Image'
                 className='w-full h-auto md:h-full'
               />
