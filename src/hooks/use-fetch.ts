@@ -7,6 +7,14 @@ import { ReturnedHeroDataProps } from "../interfaces/returned-data/returned-hero
 import { ReturnedAboutDataProps } from "@interfaces/returned-data/returned-about-data";
 import { ReturnedAccordionDataProps } from "@interfaces/returned-data/returned-accordion-data";
 
+const client = axios.create({
+  baseURL: import.meta.env.VITE_BE_API_URL,
+  timeout: 5000,
+  headers: {
+    "Content-Type": "application/json",
+  },
+});
+
 export default function getNavigation(props: FetchProps) {
   const [error, setError] = useState(null);
   const [fetchedNavData, setFetchedNavData] = useState<ReturnedNavDataProps[]>(
@@ -28,7 +36,7 @@ export default function getNavigation(props: FetchProps) {
   >([]);
 
   useEffect(() => {
-    axios
+    client
       .get(props.url)
       .then(({ data }) => {
         setFetchedNavData(data.data);

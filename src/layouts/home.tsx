@@ -1,9 +1,9 @@
 import Hero from "../components/hero/hero";
-import useFetch from "../hooks/api";
+import useFetch from "../hooks/use-fetch";
 
 export default function Home() {
   const { fetchedHeroData, error } = useFetch({
-    url: "http://localhost:1337/api/homes?populate=*",
+    url: "/api/homes?populate=*",
   });
   if (error) {
     return <p>{error}</p>;
