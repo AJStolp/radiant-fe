@@ -14,7 +14,10 @@ export default function Nav(props: NavProps<ReturnedNavDataProps[]>) {
   })[0];
 
   const logoImageUrls = props.data.map(
-    (item) => `${item.attributes.logo.data.attributes.url}`
+    (item) =>
+      `${import.meta.env.VITE_BE_API_URL}${
+        item.attributes.logo.data.attributes.url
+      }`
   );
 
   const handleScroll = () => {
