@@ -1,6 +1,6 @@
 import "./App.css";
 import Nav from "./components/nav/nav";
-import useFetch from "./hooks/api";
+import useFetch from "./hooks/use-fetch";
 import { Routes, Route, useLocation } from "react-router-dom";
 import Home from "./layouts/home";
 import { useEffect, useLayoutEffect, useState } from "react";
@@ -32,7 +32,7 @@ function App() {
   }, []);
 
   const { fetchedNavData, error } = useFetch({
-    url: "http://localhost:1337/api/navigations?populate=*",
+    url: "/api/navigations?populate=*",
   });
   if (error) {
     return <p>{error}</p>;
@@ -40,14 +40,15 @@ function App() {
 
   return (
     <div
-      className={`app ${isLoading ? "fade-in-animation" : "fade-in-animation"}`}
-    >
+      className={`app ${
+        isLoading ? "fade-in-animation" : "fade-in-animation"
+      }`}>
       <Nav data={fetchedNavData} />
       <Routes>
-        <Route path="/" element={<Home />} />
-        <Route path="/home" element={<Home />} />
-        <Route path="/services" element={<Services />} />
-        <Route path="/about" element={<About />} />
+        <Route path='/' element={<Home />} />
+        <Route path='/home' element={<Home />} />
+        <Route path='/services' element={<Services />} />
+        <Route path='/about' element={<About />} />
       </Routes>
     </div>
   );
