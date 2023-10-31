@@ -2,10 +2,9 @@ import { useEffect, useState } from "react";
 import axios from "axios";
 import { FetchProps } from "../interfaces/fetch";
 import { ReturnedNavDataProps } from "../interfaces/returned-data/returned-nav-data";
-import { ReturnedHeroDataProps } from "../interfaces/returned-data/returned-hero-data";
-// import { ReturnedJumboDataProps } from "../interfaces/returned-data/returned-jumbo-data";
-import { ReturnedAboutDataProps } from "@interfaces/returned-data/returned-about-data";
-import { ReturnedAccordionDataProps } from "@interfaces/returned-data/returned-accordion-data";
+import { ReturnedHomeDataProps } from "../interfaces/returned-data/returned-home-data";
+import { ReturnedAboutDataProps } from "../interfaces/returned-data/returned-about-data";
+import { ReturnedAccordionDataProps } from "../interfaces/returned-data/returned-accordion-data";
 
 const client = axios.create({
   baseURL: import.meta.env.VITE_BE_API_URL,
@@ -20,12 +19,9 @@ export default function getNavigation(props: FetchProps) {
   const [fetchedNavData, setFetchedNavData] = useState<ReturnedNavDataProps[]>(
     []
   );
-  const [fetchedHeroData, setFetchedHeroData] = useState<
-    ReturnedHeroDataProps[]
+  const [fetchedHomeData, setFetchedHomeData] = useState<
+    ReturnedHomeDataProps[]
   >([]);
-  // const [fetchedJumboData, setFetchedJumboData] = useState<
-  //   ReturnedJumboDataProps[]
-  // >([]);
 
   const [fetchedAboutData, setFetchedAboutData] = useState<
     ReturnedAboutDataProps[]
@@ -40,8 +36,7 @@ export default function getNavigation(props: FetchProps) {
       .get(props.url)
       .then(({ data }) => {
         setFetchedNavData(data.data);
-        setFetchedHeroData(data.data);
-        // setFetchedJumboData(data.data);
+        setFetchedHomeData(data.data);
         setFetchedAboutData(data.data);
         setFetchedAccordionData(data.data);
       })
@@ -54,8 +49,7 @@ export default function getNavigation(props: FetchProps) {
 
   return {
     fetchedNavData,
-    fetchedHeroData,
-    // fetchedJumboData,
+    fetchedHomeData,
     fetchedAboutData,
     fetchedAccordionData,
     error,

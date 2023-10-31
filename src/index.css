@@ -14,9 +14,32 @@ html, body {
   padding: 0;
 }
 
-/* animations.css */
+/* .mapboxgl-map {
+  width: 362px !important;
+  height: 400px !important;
 
-/* App.css */
+}
+@media screen and (min-width: 769px){
+  .mapboxgl-map {
+    width: 100% !important;
+    height: 400px !important;
+  }
+} */
+
+.mapboxgl-map {
+  height: 400px !important;
+  width: 100% !important;
+}
+
+.mapboxgl-canvas {
+  position: relative;
+  height: inherit;
+  width: inherit;
+}
+
+.mapboxgl-control-container {
+  display: none !important;
+}
 
 @keyframes fade-in {
   from {
