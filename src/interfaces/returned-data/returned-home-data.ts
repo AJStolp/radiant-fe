@@ -1,6 +1,8 @@
-export interface ReturnedHeroDataProps {
+export interface ReturnedHomeDataProps {
   id: number;
   attributes: {
+    hoursofoperation: string;
+    address: string;
     hero: {
       headline: string;
       CTA: string;
