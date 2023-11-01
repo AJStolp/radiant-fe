@@ -19,12 +19,22 @@ export default function Home() {
         <div className="md:w-1/2 mb-4">
           <MapComponent />
         </div>
-        <div className="text-center md:w-1/2 p-8">
-          <p className="text-light-text dark:text-dark-text mb-8">Our Hours:</p>
-          <p className="text-light-text dark:text-dark-text mb-8">
-            Our Address
-          </p>
-        </div>
+        {fetchedHomeData.map((val, index) => (
+          <div className="text-center md:w-1/2 p-8" key={index}>
+            <p className="text-dark-accent mb-8">
+              Our Hours: {""}
+              <span className="text-light-text dark:text-dark-text">
+                {val.attributes.hoursofoperation}
+              </span>
+            </p>
+            <p className="text-dark-accent mb-8">
+              Our Address: {""}
+              <span className="text-light-text dark:text-dark-text">
+                {val.attributes.address}
+              </span>
+            </p>
+          </div>
+        ))}
       </div>
     </>
   );
