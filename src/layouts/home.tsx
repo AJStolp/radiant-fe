@@ -29,8 +29,15 @@ export default function Home() {
             </p>
             <p className="text-dark-accent mb-8">
               Our Address: {""}
-              <span className="text-light-text dark:text-dark-text">
-                {val.attributes.address}
+              <span className="text-light-text dark:text-dark-text underline">
+                <a
+                  href="https://www.google.com/maps?q=Your+Address+Here"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >
+                  {" "}
+                  {val.attributes.address}
+                </a>
               </span>
             </p>
           </div>
