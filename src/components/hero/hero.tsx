@@ -15,7 +15,7 @@ export default function Hero(props: HeroProps<ReturnedHomeDataProps[]>) {
         return (
           <div
             key={index}
-            className="bg-light-background md:min-h-screen flex flex-col-reverse md:flex-row items-center justify-center dark:bg-dark-background"
+            className="md:min-h-screen flex flex-col-reverse md:flex-row items-center justify-center"
           >
             <div className="text-center md:w-1/2 p-8">
               <h1 className=" text-light-text dark:text-dark-text text-4xl mb-4">
