@@ -22,27 +22,25 @@ export default function Home() {
         </div>
         {fetchedHomeData.map((val, index) => (
           <div className="text-center md:w-1/2 p-8" key={index}>
-            <p className="text-dark-accent mb-8">
-              Our Hours: {""}
-              <span className="text-light-text dark:text-dark-text">
-                <ReactMarkdown
-                  components={{
-                    ul: ({ node, ...props }) => (
-                      <ul
-                        className="text-light-text dark:text-dark-text"
-                        {...props}
-                      />
-                    ),
-                    li: ({ node, ...props }) => (
-                      <li className="py-2" {...props} />
-                    ),
-                  }}
-                >
-                  {val.attributes.hoursofoperation}
-                </ReactMarkdown>
-              </span>
-            </p>
-            <p className="text-dark-accent">Our Address: </p>
+            <p className="text-dark-accent">Our Hours: {""}</p>
+            <span className="text-light-text dark:text-dark-text">
+              <ReactMarkdown
+                components={{
+                  ul: ({ node, ...props }) => (
+                    <ul
+                      className="text-light-text dark:text-dark-text"
+                      {...props}
+                    />
+                  ),
+                  li: ({ node, ...props }) => (
+                    <li className="py-2" {...props} />
+                  ),
+                }}
+              >
+                {val.attributes.hoursofoperation}
+              </ReactMarkdown>
+            </span>
+            <p className="text-dark-accent mt-8">Our Address: </p>
             {isIOS ? (
               <span className="text-light-text dark:text-dark-text">
                 <a
