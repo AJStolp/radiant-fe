@@ -11,17 +11,17 @@ export default {
       colors: {
         dark: {
           text: "#ffffff",
-          background: "#111111",
-          primary: "#153969",
+          background: "#121212",
+          primary: "#95baea",
           secondary: "#030303",
-          accent: "#ffbd59",
+          accent: "#a86500",
         },
         light: {
-          text: "#111111",
-          background: "#ffffff",
-          primary: "#153969",
-          secondary: "#cfcfcf",
-          accent: "#bf7300",
+          text: "#000000",
+          background: "#ededed",
+          primary: "#153a6a",
+          secondary: "#fcfcfc",
+          accent: "#ffbc57",
         },
         focus: {
           outline: "4px solid #ffbf59",
@@ -30,6 +30,7 @@ export default {
       fontFamily: {
         urban: ["Urbanist", "sans-serif"],
         fin: ["Josefin Sans", "sans-serif"],
+        poppins: ["Poppins", "sans-serif"],
       },
       fontWeight: {
         light: 300,

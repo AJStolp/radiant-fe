@@ -9,7 +9,7 @@ export default function About() {
   }
 
   return (
-    <section className="grid gap-8 lg:gap-16 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 max-w-screen-xl m-4 lg:m-auto lg:pt-16">
+    <section className="grid gap-12 lg:gap-16 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 max-w-screen-xl m-4 lg:m-auto lg:pt-16 px-4">
       {fetchedAboutData.flatMap((item, outerIndex) => {
         return item.attributes.teaminfo.map((team, innerIndex) => {
           // Construct the image URL for each team member
@@ -17,23 +17,28 @@ export default function About() {
           const imageUrl = `${backendUrl}${team.employeephoto.data.attributes.url}`;
 
           return (
-            <div key={`${outerIndex}-${innerIndex}`}>
-              <div className="text-center text-light-text dark:text-dark-text">
-                <figure>
-                  <img
-                    className="mx-auto mb-4 w-fit h-fit rounded"
-                    src={imageUrl}
-                    alt={`${team.name} Avatar`}
-                  />
-                  <figcaption>
-                    <h3 className="mb-1 text-2xl tracking-tight text-light-accent">
-                      {team.name}
-                    </h3>
-                    <p>{team.about}</p>
-                  </figcaption>
-                </figure>
+            <section
+              key={`${outerIndex}-${innerIndex}`}
+              className="max-w-sm bg-white border border-gray-200 rounded-lg shadow-lg dark:bg-dark-secondary dark:border-gray-700"
+            >
+              <figure>
+                <img
+                  className="rounded-t-lg"
+                  src={imageUrl}
+                  alt={`${team.name} Avatar`}
+                />
+              </figure>
+              <div className="p-5">
+                <figcaption>
+                  <h2 className="mb-2 text-2xl font-bold tracking-tight text-gray-900 dark:text-white gradient-text">
+                    {team.name}
+                  </h2>
+                  <p className="mb-3 text-base text-light-text dark:text-dark-text">
+                    {team.about}
+                  </p>
+                </figcaption>
               </div>
-            </div>
+            </section>
           );
         });
       })}

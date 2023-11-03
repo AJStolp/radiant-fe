@@ -18,7 +18,7 @@ export default function Hero(props: HeroProps<ReturnedHomeDataProps[]>) {
             className="md:min-h-screen flex flex-col-reverse md:flex-row items-center justify-center"
           >
             <div className="text-center md:w-1/2 p-8">
-              <h1 className=" text-light-text dark:text-dark-text text-4xl mb-4">
+              <h1 className=" text-light-text dark:text-dark-text text-4xl mb-4 font-bold">
                 {item.attributes.hero.headline}
               </h1>
               <p className="text-light-text dark:text-dark-text mb-8">

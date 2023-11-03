@@ -22,7 +22,9 @@ export default function Home() {
         </div>
         {fetchedHomeData.map((val, index) => (
           <div className="text-center md:w-1/2 p-8" key={index}>
-            <p className="text-dark-accent">Our Hours: {""}</p>
+            <p className="light-text-light dark:text-light-accent font-bold ">
+              Our Hours: {""}
+            </p>
             <span className="text-light-text dark:text-dark-text">
               <ReactMarkdown
                 components={{
@@ -35,12 +37,17 @@ export default function Home() {
                   li: ({ node, ...props }) => (
                     <li className="py-2" {...props} />
                   ),
+                  p: ({ node, ...props }) => (
+                    <p className="text-base" {...props} />
+                  ),
                 }}
               >
                 {val.attributes.hoursofoperation}
               </ReactMarkdown>
             </span>
-            <p className="text-dark-accent mt-8">Our Address: </p>
+            <p className="light-text-light dark:text-light-accent font-bold mt-8 text-xl">
+              Our Address:{" "}
+            </p>
             {isIOS ? (
               <span className="text-light-text dark:text-dark-text">
                 <a
@@ -49,7 +56,7 @@ export default function Home() {
                   )}`}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="underline"
+                  className="underline text-base"
                   aria-label="open in apple maps"
                 >
                   {val.attributes.address}

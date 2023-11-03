@@ -7,6 +7,8 @@ import { useEffect, useLayoutEffect, useState } from "react";
 import { prefersDarkMode } from "./utilities/utilities";
 import Services from "./layouts/services";
 import About from "./layouts/about";
+import Footer from "./components/footer/footer";
+import { INSTAGRAM, TIKTOK, SNAPCHAT, FACEBOOK } from "./utilities/constants";
 
 function App() {
   const [isLoading, setIsLoading] = useState(true);
@@ -40,16 +42,16 @@ function App() {
 
   return (
     <div
-      className={`app ${
-        isLoading ? "fade-in-animation" : "fade-in-animation"
-      }`}>
+      className={`app ${isLoading ? "fade-in-animation" : "fade-in-animation"}`}
+    >
       <Nav data={fetchedNavData} />
       <Routes>
-        <Route path='/' element={<Home />} />
-        <Route path='/home' element={<Home />} />
-        <Route path='/services' element={<Services />} />
-        <Route path='/about' element={<About />} />
+        <Route path="/" element={<Home />} />
+        <Route path="/home" element={<Home />} />
+        <Route path="/services" element={<Services />} />
+        <Route path="/about" element={<About />} />
       </Routes>
+      <Footer data={[INSTAGRAM, TIKTOK, SNAPCHAT, FACEBOOK]}></Footer>
     </div>
   );
 }
