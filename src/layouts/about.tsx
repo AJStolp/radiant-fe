@@ -13,8 +13,7 @@ export default function About() {
       {fetchedAboutData.flatMap((item, outerIndex) => {
         return item.attributes.teaminfo.map((team, innerIndex) => {
           // Construct the image URL for each team member
-          const backendUrl = import.meta.env.VITE_BE_API_URL;
-          const imageUrl = `${backendUrl}${team.employeephoto.data.attributes.url}`;
+          const imageUrl = `${team.employeephoto.data.attributes.url}`;
 
           return (
             <section
