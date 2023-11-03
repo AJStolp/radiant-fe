@@ -14,11 +14,14 @@ export default function Nav(props: NavProps<ReturnedNavDataProps[]>) {
   })[0];
 
   const logoImageUrls = props.data.map(
-    (item) =>
-      `${import.meta.env.VITE_BE_API_URL}${
-        item.attributes.logo.data.attributes.url
-      }`
+    (item) => `${item.attributes.logo.data.attributes.url}`
   );
+
+  const logoAlt = props.data.map(
+    (item) => `${item.attributes.logo.data.attributes.alternativeText}`
+  );
+
+  console.log(logoAlt, "logoalt");
 
   const handleScroll = () => {
     if (window.scrollY > 0) {
@@ -49,7 +52,7 @@ export default function Nav(props: NavProps<ReturnedNavDataProps[]>) {
           {logoImageUrls.map((logoUrl, index) => (
             <img
               key={index}
-              alt={`Radiant Hair Salon Logo ${index}`}
+              alt={logoAlt}
               className="mr-3 h-6 sm:h-9"
               src={logoUrl}
             />
