@@ -17,9 +17,9 @@ export default function Nav(props: NavProps<ReturnedNavDataProps[]>) {
     (item) => `${item.attributes.logo.data.attributes.url}`
   );
 
-  const logoAlt = props.data.map(
-    (item) => `${item.attributes.logo.data.attributes.alternativeText}`
-  );
+  const logoAlt = props.data
+    .map((item) => `${item.attributes.logo.data.attributes.alternativeText}`)
+    .join(", ");
 
   console.log(logoAlt, "logoalt");
 
