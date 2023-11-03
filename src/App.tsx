@@ -8,7 +8,6 @@ import { prefersDarkMode } from "./utilities/utilities";
 import Services from "./layouts/services";
 import About from "./layouts/about";
 import Footer from "./components/footer/footer";
-import { INSTAGRAM, TIKTOK, SNAPCHAT, FACEBOOK } from "./utilities/constants";
 
 function App() {
   const [isLoading, setIsLoading] = useState(true);
@@ -51,7 +50,7 @@ function App() {
         <Route path="/services" element={<Services />} />
         <Route path="/about" element={<About />} />
       </Routes>
-      <Footer data={[INSTAGRAM, TIKTOK, SNAPCHAT, FACEBOOK]}></Footer>
+      <Footer data={[]}></Footer>
     </div>
   );
 }
