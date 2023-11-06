@@ -9,7 +9,7 @@ export default function About() {
   }
 
   return (
-    <section className="grid gap-12 lg:gap-16 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 max-w-screen-xl m-4 lg:m-auto lg:pt-16 px-4">
+    <section className="grid gap-12 lg:gap-16 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 max-w-screen-xl m-4 lg:m-auto lg:pt-16 px-4 pb-28">
       {fetchedAboutData.flatMap((item, outerIndex) => {
         return item.attributes.teaminfo.map((team, innerIndex) => {
           // Construct the image URL for each team member
