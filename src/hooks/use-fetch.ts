@@ -5,6 +5,7 @@ import { ReturnedNavDataProps } from "../interfaces/returned-data/returned-nav-d
 import { ReturnedHomeDataProps } from "../interfaces/returned-data/returned-home-data";
 import { ReturnedAboutDataProps } from "../interfaces/returned-data/returned-about-data";
 import { ReturnedAccordionDataProps } from "../interfaces/returned-data/returned-accordion-data";
+import { ReturnedFooterDataProps } from "../interfaces/returned-data/returned-footer-data";
 
 const client = axios.create({
   baseURL: import.meta.env.VITE_BE_API_URL,
@@ -14,7 +15,7 @@ const client = axios.create({
   },
 });
 
-export default function getNavigation(props: FetchProps) {
+export default function getData(props: FetchProps) {
   const [error, setError] = useState(null);
   const [fetchedNavData, setFetchedNavData] = useState<ReturnedNavDataProps[]>(
     []
@@ -31,6 +32,10 @@ export default function getNavigation(props: FetchProps) {
     ReturnedAccordionDataProps[]
   >([]);
 
+  const [fetchedFooterData, setFetchedFooterData] = useState<
+    ReturnedFooterDataProps[]
+  >([]);
+
   useEffect(() => {
     client
       .get(props.url)
@@ -39,6 +44,7 @@ export default function getNavigation(props: FetchProps) {
         setFetchedHomeData(data.data);
         setFetchedAboutData(data.data);
         setFetchedAccordionData(data.data);
+        setFetchedFooterData(data.data);
       })
       .catch((error) => setError(error));
   }, [props.url]);
@@ -52,6 +58,7 @@ export default function getNavigation(props: FetchProps) {
     fetchedHomeData,
     fetchedAboutData,
     fetchedAccordionData,
+    fetchedFooterData,
     error,
   };
 }

@@ -21,8 +21,6 @@ export default function Nav(props: NavProps<ReturnedNavDataProps[]>) {
     .map((item) => `${item.attributes.logo.data.attributes.alternativeText}`)
     .join(", ");
 
-  console.log(logoAlt, "logoalt");
-
   const handleScroll = () => {
     if (window.scrollY > 0) {
       setScrolled(true);

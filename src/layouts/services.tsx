@@ -13,7 +13,7 @@ export default function Services() {
   const mainContent = fetchedAccordionData.map((item) => {
     return (
       <section key={item.id}>
-        <h1 className='text-light-text dark:text-dark-text mb-4 text-4xl py-2'>
+        <h1 className="text-light-text dark:text-dark-text mb-4 text-4xl py-2">
           {" "}
           {item.attributes.mainContent.heading}
         </h1>
@@ -22,30 +22,31 @@ export default function Services() {
           components={{
             h1: ({ node, ...props }) => (
               <h1
-                className='text-light-text dark:text-dark-text mb-4 text-4xl py-2'
+                className="text-light-text dark:text-dark-text mb-4 text-4xl py-2"
                 {...props}
               />
             ),
             h2: ({ node, ...props }) => (
               <h2
-                className='text-light-text dark:text-dark-text mb-4 py-2 text-xl'
+                className="text-light-text dark:text-dark-text mb-4 py-2 text-xl"
                 {...props}
               />
             ),
             p: ({ node, ...props }) => (
               <p
-                className='text-light-text dark:text-dark-text py-2'
+                className="text-light-text dark:text-dark-text py-2"
                 {...props}
               />
             ),
-          }}>
+          }}
+        >
           {item.attributes.mainContent.content}
         </ReactMarkdown>
       </section>
     );
   });
   return (
-    <section className='p-4 p-0-sm max-w-screen-xl m-auto'>
+    <section className="p-4 p-0-sm max-w-screen-xl m-auto pb-24">
       {mainContent}
       <Accordion data={fetchedAccordionData} />
     </section>
