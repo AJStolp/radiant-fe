@@ -8,7 +8,7 @@ export default function Footer(
   return (
     <footer className="w-full fixed bottom-0 bg-light-background dark:bg-dark-background p-4 border-t border-light-accent dark:border-dark-accent">
       <section className="max-w-screen-xl m-auto">
-        <h3 className="text-light-text dark:text-dark-text text-base pb-2 underline">
+        <h3 className="text-light-text dark:text-dark-text text-base pb-2">
           Follow us on:
         </h3>
         <ul className="flex flex-row justify-between m-auto">
