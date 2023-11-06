@@ -35,6 +35,11 @@ function App() {
   const { fetchedNavData, error } = useFetch({
     url: "/api/navigations?populate=*",
   });
+
+  const { fetchedFooterData } = useFetch({
+    url: "api/footers?populate[0]=sociallinks&populate[1]=sociallinks.media",
+  });
+
   if (error) {
     return <p>{error}</p>;
   }
@@ -50,7 +55,7 @@ function App() {
         <Route path="/services" element={<Services />} />
         <Route path="/about" element={<About />} />
       </Routes>
-      <Footer data={[]}></Footer>
+      <Footer data={fetchedFooterData}></Footer>
     </div>
   );
 }
