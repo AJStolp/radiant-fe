@@ -16,7 +16,7 @@ export default function Home() {
   return (
     <>
       <Hero data={fetchedHomeData} />
-      <div className="md:min-h-screen flex flex-col-reverse md:flex-row items-center justify-center">
+      <div className="flex flex-col-reverse md:flex-row items-center justify-center pb-24">
         <div className="md:w-1/2 mb-4">
           <MapComponent />
         </div>
