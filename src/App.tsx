@@ -8,6 +8,7 @@ import { prefersDarkMode } from "./utilities/utilities";
 import Services from "./layouts/services";
 import About from "./layouts/about";
 import Footer from "./components/footer/footer";
+import Portfolio from "./layouts/portfolio";
 
 function App() {
   const [isLoading, setIsLoading] = useState(true);
@@ -54,6 +55,7 @@ function App() {
         <Route path="/home" element={<Home />} />
         <Route path="/services" element={<Services />} />
         <Route path="/about" element={<About />} />
+        <Route path="/gallery" element={<Portfolio />} />
       </Routes>
       <Footer data={fetchedFooterData}></Footer>
     </div>
