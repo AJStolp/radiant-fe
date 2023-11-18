@@ -6,6 +6,7 @@ import { ReturnedHomeDataProps } from "../interfaces/returned-data/returned-home
 import { ReturnedAboutDataProps } from "../interfaces/returned-data/returned-about-data";
 import { ReturnedAccordionDataProps } from "../interfaces/returned-data/returned-accordion-data";
 import { ReturnedFooterDataProps } from "../interfaces/returned-data/returned-footer-data";
+import { ReturnedGalleryDataProps } from "@interfaces/returned-data/returned-gallery-data";
 
 const client = axios.create({
   baseURL: import.meta.env.VITE_BE_API_URL,
@@ -36,6 +37,10 @@ export default function getData(props: FetchProps) {
     ReturnedFooterDataProps[]
   >([]);
 
+  const [fetchedGalleryData, setFetchedGalleryData] = useState<
+    ReturnedGalleryDataProps[]
+  >([]);
+
   useEffect(() => {
     client
       .get(props.url)
@@ -45,6 +50,7 @@ export default function getData(props: FetchProps) {
         setFetchedAboutData(data.data);
         setFetchedAccordionData(data.data);
         setFetchedFooterData(data.data);
+        setFetchedGalleryData(data.data);
       })
       .catch((error) => setError(error));
   }, [props.url]);
@@ -59,6 +65,7 @@ export default function getData(props: FetchProps) {
     fetchedAboutData,
     fetchedAccordionData,
     fetchedFooterData,
+    fetchedGalleryData,
     error,
   };
 }
