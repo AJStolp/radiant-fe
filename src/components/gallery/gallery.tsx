@@ -7,9 +7,6 @@ interface ImageFormat {
 
 interface ImageAttributes {
   alternativeText?: string;
-  formats: {
-    small: ImageFormat;
-  };
 }
 
 interface ImageData {
