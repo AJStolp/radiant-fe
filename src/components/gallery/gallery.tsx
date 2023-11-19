@@ -1,12 +1,8 @@
 import { useState } from "react";
 
-// Define your interfaces here, if they are not already defined elsewhere
-interface ImageFormat {
-  url: string;
-}
-
 interface ImageAttributes {
   alternativeText?: string;
+  url: string;
 }
 
 interface ImageData {
@@ -62,8 +58,7 @@ export default function Gallery(props: GalleryProps) {
       <div className="flex flex-wrap justify-center">
         {props.data.map((portfolioItem) =>
           portfolioItem.attributes.galleryitem.map((galleryItem, index) => {
-            const imageUrl =
-              galleryItem.image.data.attributes.formats.small.url;
+            const imageUrl = galleryItem.image.data.attributes.url;
             const imageAlt =
               galleryItem.image.data.attributes.alternativeText ||
               "Gallery image";

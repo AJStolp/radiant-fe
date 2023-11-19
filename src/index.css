@@ -129,10 +129,10 @@ html, body {
 
 @layer utilities {
   .animate-bounce-variation1 {
-    animation: bounce-variation1 3s ease-in-out infinite;
+    animation: bounce-variation1 3.5s ease-in-out infinite;
   }
 
   .animate-bounce-variation2 {
-    animation: bounce-variation2 4s ease-in-out infinite;
+    animation: bounce-variation2 4.5s ease-in-out infinite;
   }
 }
