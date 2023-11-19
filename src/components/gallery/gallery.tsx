@@ -45,7 +45,7 @@ export default function Gallery(props: GalleryProps) {
     setModalOpen(false);
   };
 
-  const getRandomBounceClass = (id: number) => {
+  const getRandomBounceClass = () => {
     const variations = [
       "animate-bounce-variation1",
       "animate-bounce-variation2",
@@ -53,21 +53,26 @@ export default function Gallery(props: GalleryProps) {
     const randomIndex = Math.floor(Math.random() * variations.length);
     return variations[randomIndex];
   };
+
   return (
     <>
-      <div className="flex flex-wrap justify-center">
+      <div
+        className={`flex flex-wrap justify-center ${
+          isModalOpen ? "filter blur-sm" : ""
+        }`}
+      >
         {props.data.map((portfolioItem) =>
           portfolioItem.attributes.galleryitem.map((galleryItem, index) => {
             const imageUrl = galleryItem.image.data.attributes.url;
             const imageAlt =
               galleryItem.image.data.attributes.alternativeText ||
               "Gallery image";
-            const bounceClass = getRandomBounceClass(galleryItem.id);
+            const bounceClass = getRandomBounceClass();
             const animationDelay = `${(index % 5) * 0.5}s`; // Staggered delay
             return (
               <div
                 key={galleryItem.id}
-                className={`w-full sm:w-1/2 md:w-1/3 lg:w-1/4 p-4 cursor-pointer ${bounceClass}`}
+                className={`w-full sm:w-1/2 md:w-1/3 lg:w-1/4 p-4 cursor-pointer ${bounceClass}  hover:ring hover:ring-black dark:hover:ring-white`}
                 onClick={() => openModal(galleryItem)}
                 style={{ animationDelay: animationDelay }}
               >
@@ -87,12 +92,12 @@ export default function Gallery(props: GalleryProps) {
           className="fixed inset-0 bg-black bg-opacity-50 overflow-y-auto h-full w-full"
           id="my-modal"
         >
-          <div className="relative top-20 mx-auto p-5 border w-11/12 md:w-2/3 lg:w-1/2 shadow-lg rounded-md bg-light-background dark:bg-dark-background text-light-text dark:text-dark-text">
+          <div className="relative top-20 mx-auto p-5 border w-11/12 md:w-2/3 lg:w-1/2 shadow-lg rounded-md bg-light-background dark:bg-dark-background text-light-text dark:text-dark-text backdrop-blur">
             <div className="flex flex-col md:flex-row items-center md:items-start ">
               <div className="md:w-1/2">
                 <img
                   className="h-auto max-w-full rounded-lg"
-                  src={selectedImage.image.data.attributes.formats.small.url}
+                  src={selectedImage.image.data.attributes.url}
                   alt={
                     selectedImage.image.data.attributes.alternativeText ||
                     "Gallery image"

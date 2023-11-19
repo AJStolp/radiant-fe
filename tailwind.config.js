@@ -8,6 +8,10 @@ export default {
 
   theme: {
     extend: {
+      backdropFilter: {
+        none: "none",
+        blur: "blur(20px)",
+      },
       colors: {
         dark: {
           text: "#ffffff",
@@ -36,6 +40,12 @@ export default {
         light: 300,
       },
     },
+    variants: {
+      extend: {
+        // ...
+        backdropFilter: ["responsive"], // enable responsive variants as needed
+      },
+    },
   },
-  plugins: [require("flowbite/plugin")],
+  plugins: [require("flowbite/plugin", "tailwindcss-filters")],
 };

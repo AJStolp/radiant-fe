@@ -136,3 +136,8 @@ html, body {
     animation: bounce-variation2 4.5s ease-in-out infinite;
   }
 }
+
+.backdrop-blur-strong {
+  backdrop-filter: blur(30px);
+  /* Increase the blur strength here */
+}
