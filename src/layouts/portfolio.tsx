@@ -3,7 +3,7 @@ import useFetch from "../hooks/use-fetch";
 
 export default function Portfolio() {
   const { fetchedGalleryData, error } = useFetch({
-    url: "http://localhost:1337/api/portfolios?populate=*",
+    url: "/api/portfolios?populate[0]=galleryitem&populate[1]=galleryitem.image",
   });
   if (error) {
     return <p>{error}</p>;

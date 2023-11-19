@@ -6,7 +6,7 @@ import { ReturnedHomeDataProps } from "../interfaces/returned-data/returned-home
 import { ReturnedAboutDataProps } from "../interfaces/returned-data/returned-about-data";
 import { ReturnedAccordionDataProps } from "../interfaces/returned-data/returned-accordion-data";
 import { ReturnedFooterDataProps } from "../interfaces/returned-data/returned-footer-data";
-import { ReturnedGalleryDataProps } from "@interfaces/returned-data/returned-gallery-data";
+import { ReturnedGalleryDataProps } from "../interfaces/returned-data/returned-gallery-data";
 
 const client = axios.create({
   baseURL: import.meta.env.VITE_BE_API_URL,

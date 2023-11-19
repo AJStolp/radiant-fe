@@ -15,18 +15,6 @@ html, body {
   padding: 0;
 }
 
-/* .mapboxgl-map {
-  width: 362px !important;
-  height: 400px !important;
-
-}
-@media screen and (min-width: 769px){
-  .mapboxgl-map {
-    width: 100% !important;
-    height: 400px !important;
-  }
-} */
-
 .mapboxgl-map {
   height: 400px !important;
   width: 100% !important;
@@ -111,4 +99,45 @@ html, body {
   background: linear-gradient(to right, #95BAEA 0%, #A86500 68%);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
+}
+
+@layer components {
+  @keyframes bounce-variation1 {
+
+    0%,
+    100% {
+      transform: translateY(0);
+    }
+
+    50% {
+      transform: translateY(-15px);
+    }
+  }
+
+  @keyframes bounce-variation2 {
+
+    0%,
+    100% {
+      transform: translateY(0);
+    }
+
+    50% {
+      transform: translateY(-10px);
+    }
+  }
+}
+
+@layer utilities {
+  .animate-bounce-variation1 {
+    animation: bounce-variation1 3.5s ease-in-out infinite;
+  }
+
+  .animate-bounce-variation2 {
+    animation: bounce-variation2 4.5s ease-in-out infinite;
+  }
+}
+
+.backdrop-blur-strong {
+  backdrop-filter: blur(30px);
+  /* Increase the blur strength here */
 }
