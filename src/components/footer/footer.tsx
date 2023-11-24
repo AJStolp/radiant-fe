@@ -16,10 +16,14 @@ export default function Footer(
             val.attributes.sociallinks.map((item) => (
               <li
                 key={item.id}
-                className="text-light-text dark:text-dark-text w-6"
+                className="text-light-text dark:text-dark-text w-6 hover:ring-dark-focus "
               >
-                <a href={item.link} target="_blank">
-                  <img src={item.media.data.attributes.url} />
+                <a
+                  href={item.link}
+                  target="_blank"
+                  className="focus:outline-none focus:ring-2 focus:ring-dark-focus w-fit block"
+                >
+                  <img src={item.media.data.attributes.url} alt={item.title} />
                   {/* <p className="text-xs">{item.title}</p> */}
                 </a>
               </li>

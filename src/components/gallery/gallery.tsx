@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useState, useRef, useEffect } from "react";
 
 interface ImageAttributes {
   alternativeText?: string;
@@ -35,23 +35,33 @@ interface GalleryProps {
 export default function Gallery(props: GalleryProps) {
   const [selectedImage, setSelectedImage] = useState<GalleryItem | null>(null);
   const [isModalOpen, setModalOpen] = useState(false);
+  const isModalRef = useRef<HTMLDialogElement>(null);
+  const [lastFocusedElement, setLastFocusedElement] = useState<Element | null>(
+    null
+  );
+
+  useEffect(() => {
+    if (isModalOpen) {
+      isModalRef.current?.focus();
+    } else {
+      if (lastFocusedElement instanceof HTMLElement) {
+        lastFocusedElement.focus();
+      }
+    }
+  }, [isModalOpen]);
 
   const openModal = (image: GalleryItem) => {
+    setLastFocusedElement(document.activeElement);
+
     setSelectedImage(image);
     setModalOpen(true);
   };
 
   const closeModal = () => {
+    if (lastFocusedElement instanceof HTMLElement) {
+      lastFocusedElement.focus();
+    }
     setModalOpen(false);
-  };
-
-  const getRandomBounceClass = () => {
-    const variations = [
-      "animate-bounce-variation1",
-      "animate-bounce-variation2",
-    ]; // Add more variations if needed
-    const randomIndex = Math.floor(Math.random() * variations.length);
-    return variations[randomIndex];
   };
 
   return (
@@ -67,32 +77,44 @@ export default function Gallery(props: GalleryProps) {
             const imageAlt =
               galleryItem.image.data.attributes.alternativeText ||
               "Gallery image";
-            const bounceClass = getRandomBounceClass();
-            const animationDelay = `${(index % 5) * 0.5}s`; // Staggered delay
+            const effects = ["fade-up", "fade-down", "fade-right", "fade-left"];
+
             return (
-              <div
+              <article
                 key={galleryItem.id}
-                className={`w-full sm:w-1/2 md:w-1/3 lg:w-1/4 p-4 cursor-pointer ${bounceClass}  hover:ring hover:ring-black dark:hover:ring-white`}
+                className={`w-full sm:w-1/2 md:w-1/3 lg:w-1/4 p-4 hover:ring focus:ring focus:ring-light-accent dark:hover:ring-white hover:ring-dark-focus`}
                 onClick={() => openModal(galleryItem)}
-                style={{ animationDelay: animationDelay }}
+                onKeyDown={(e) => e.key === "Enter" && openModal(galleryItem)}
+                tabIndex={0}
+                role="button"
+                aria-label={`View details of ${imageAlt}`}
+                data-aos={effects[index % effects.length]}
               >
                 <img
                   className="h-auto md:max-h-auto max-w-full w-full rounded-lg shadow-lg"
                   src={imageUrl}
                   alt={imageAlt}
                 />
-              </div>
+              </article>
             );
           })
         )}
       </div>
 
       {isModalOpen && selectedImage && (
-        <div
+        <dialog
           className="fixed inset-0 bg-black bg-opacity-50 overflow-y-auto h-full w-full"
-          id="my-modal"
+          open
+          aria-modal="true"
+          aria-labelledby="modal-title"
+          role="dialog"
+          ref={isModalRef}
+          tabIndex={-1}
         >
-          <div className="relative top-20 mx-auto p-5 border w-11/12 md:w-2/3 lg:w-1/2 shadow-lg rounded-md bg-light-background dark:bg-dark-background text-light-text dark:text-dark-text backdrop-blur ">
+          <div
+            className="relative top-20 mx-auto p-5 border w-11/12 md:w-2/3 lg:w-1/2 shadow-lg rounded-md bg-light-background dark:bg-dark-background text-light-text dark:text-dark-text backdrop-blur"
+            role="document"
+          >
             <div className="flex flex-col md:flex-row items-center md:items-start ">
               <div className="md:w-1/2">
                 <img
@@ -100,12 +122,12 @@ export default function Gallery(props: GalleryProps) {
                   src={selectedImage.image.data.attributes.url}
                   alt={
                     selectedImage.image.data.attributes.alternativeText ||
-                    "Gallery image"
+                    "Selected gallery image"
                   }
                 />
               </div>
-              <div className="md:w-1/2 mt-4 md:mt-0 md:pl-4 self-center text-center">
-                <h3 className="text-lg leading-6 font-medium">
+              <div className="md:w-1/2 mt-4 md:mt-0 md:pl-4 text-center self-center">
+                <h3 id="modal-title" className="text-lg leading-6 font-medium">
                   {selectedImage.title}
                 </h3>
                 <p className="text-sm">{selectedImage.description}</p>
@@ -113,14 +135,14 @@ export default function Gallery(props: GalleryProps) {
             </div>
             <div className="mt-4 flex justify-end">
               <button
-                className="px-4 py-2 bg-light-primary dark:bg-dark-primary text-white dark:text-dark-text text-base font-medium rounded-md shadow-sm hover:bg-gray-700 focus:outline-none focus:ring-2 focus:ring-light-accent"
+                className="px-4 py-2 bg-light-primary dark:bg-dark-primary text-white text-base font-medium rounded-md shadow-sm hover:bg-gray-700 focus:outline-none focus:ring focus:ring-light-accent"
                 onClick={closeModal}
               >
                 Close
               </button>
             </div>
           </div>
-        </div>
+        </dialog>
       )}
     </>
   );
