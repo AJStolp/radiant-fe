@@ -77,7 +77,7 @@ export default function Gallery(props: GalleryProps) {
                 style={{ animationDelay: animationDelay }}
               >
                 <img
-                  className="h-auto max-w-full w-full rounded-lg shadow-lg"
+                  className="h-auto md:max-h-auto max-w-full w-full rounded-lg shadow-lg"
                   src={imageUrl}
                   alt={imageAlt}
                 />
@@ -92,11 +92,11 @@ export default function Gallery(props: GalleryProps) {
           className="fixed inset-0 bg-black bg-opacity-50 overflow-y-auto h-full w-full"
           id="my-modal"
         >
-          <div className="relative top-20 mx-auto p-5 border w-11/12 md:w-2/3 lg:w-1/2 shadow-lg rounded-md bg-light-background dark:bg-dark-background text-light-text dark:text-dark-text backdrop-blur">
+          <div className="relative top-20 mx-auto p-5 border w-11/12 md:w-2/3 lg:w-1/2 shadow-lg rounded-md bg-light-background dark:bg-dark-background text-light-text dark:text-dark-text backdrop-blur ">
             <div className="flex flex-col md:flex-row items-center md:items-start ">
               <div className="md:w-1/2">
                 <img
-                  className="h-auto max-w-full rounded-lg"
+                  className="h-auto w-3/4 max-w-full rounded-lg m-auto"
                   src={selectedImage.image.data.attributes.url}
                   alt={
                     selectedImage.image.data.attributes.alternativeText ||
