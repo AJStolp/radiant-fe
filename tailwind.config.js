@@ -12,6 +12,7 @@ export default {
         none: "none",
         blur: "blur(20px)",
       },
+      textDecoration: ["focus"],
       colors: {
         dark: {
           text: "#ffffff",
@@ -19,6 +20,7 @@ export default {
           primary: "#95baea",
           secondary: "#030303",
           accent: "#a86500",
+          focus: "#269735",
         },
         light: {
           text: "#000000",
@@ -28,7 +30,7 @@ export default {
           accent: "#ffbc57",
         },
         focus: {
-          outline: "4px solid #ffbf59",
+          outline: "4px solid #456E45",
         },
       },
       fontFamily: {
