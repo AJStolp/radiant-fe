@@ -45,6 +45,18 @@ export default function Home() {
                 {val.attributes.hoursofoperation}
               </ReactMarkdown>
             </span>
+            <p className="light-text-light dark:text-light-accent font-bold py-4">
+              Our Phone Number
+            </p>
+            <span className="text-light-text dark:text-dark-text">
+              {" "}
+              <a
+                href={val.attributes.phonenumber}
+                aria-label="Call us at: 1(906)250-5372"
+              >
+                {val.attributes.phonenumber}
+              </a>
+            </span>
             <p className="light-text-light dark:text-light-accent font-bold mt-8 text-xl">
               Our Address:{" "}
             </p>

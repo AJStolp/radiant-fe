@@ -3,6 +3,7 @@ export interface ReturnedHomeDataProps {
   attributes: {
     hoursofoperation: string;
     address: string;
+    phonenumber: string;
     hero: {
       headline: string;
       CTA: string;
