@@ -9,8 +9,10 @@ import Services from "./layouts/services";
 import About from "./layouts/about";
 import Footer from "./components/footer/footer";
 import Portfolio from "./layouts/portfolio";
+import { inject } from "@vercel/analytics";
 
 function App() {
+  inject();
   const [isLoading, setIsLoading] = useState(true);
   const location = useLocation();
 
