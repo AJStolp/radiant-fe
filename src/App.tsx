@@ -10,6 +10,7 @@ import About from "./layouts/about";
 import Footer from "./components/footer/footer";
 import Portfolio from "./layouts/portfolio";
 import { inject } from "@vercel/analytics";
+import { SpeedInsights } from "@vercel/speed-insights/react";
 
 function App() {
   inject();
@@ -60,6 +61,7 @@ function App() {
         <Route path="/gallery" element={<Portfolio />} />
       </Routes>
       <Footer data={fetchedFooterData}></Footer>
+      <SpeedInsights />
     </div>
   );
 }
