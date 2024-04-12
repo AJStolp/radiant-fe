@@ -7,7 +7,7 @@ export default function Footer(
   const footerData = props.data || [];
   return (
     <footer className="w-full fixed bottom-0 bg-light-background dark:bg-dark-background p-4 border-t border-light-accent dark:border-dark-accent">
-      <section className="max-w-screen-xl m-auto">
+      <section className="max-w-screen-2xl m-auto">
         <h3 className="text-light-text dark:text-dark-text text-base pb-2">
           Follow us on:
         </h3>
