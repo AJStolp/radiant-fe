@@ -14,14 +14,14 @@ export default function Home() {
   const isIOS = /Mac|iPhone|iPad|iPod/.test(navigator.userAgent);
 
   return (
-    <>
+    <section className="max-w-screen-2xl m-auto">
       <Hero data={fetchedHomeData} />
-      <div className="flex flex-col-reverse md:flex-row items-center justify-center pb-24">
-        <div className="md:w-1/2 mb-4">
+      <div className="flex flex-col-reverse lg:flex-row items-center justify-evenly pb-24 px-8">
+        <div className="mb-4 md:w-1/2 h-1/2">
           <MapComponent />
         </div>
-        {fetchedHomeData.map((val, index) => (
-          <div className="text-center md:w-1/2 p-8" key={index}>
+        {fetchedHomeData.map((val) => (
+          <div className="text-center p-8 md:w-1/2 " key={val.id}>
             <p className="light-text-light dark:text-light-accent font-bold ">
               Our Hours: {""}
             </p>
@@ -92,6 +92,6 @@ export default function Home() {
           </div>
         ))}
       </div>
-    </>
+    </section>
   );
 }
