@@ -13,9 +13,9 @@ export default function Hero(props: HeroProps<ReturnedHomeDataProps[]>) {
         return (
           <div
             key={index}
-            className="pb-12 md:pb-24 flex flex-col-reverse md:flex-row items-center justify-center"
+            className="pb-12 md:pb-24 flex flex-col-reverse lg:flex-row items-center justify-center"
           >
-            <div className="text-center md:w-1/2 p-8">
+            <div className="text-center  sm:p-8">
               <h1 className=" text-light-text dark:text-dark-text text-4xl mb-4 font-bold">
                 {item.attributes.hero.headline}
               </h1>
@@ -29,11 +29,13 @@ export default function Hero(props: HeroProps<ReturnedHomeDataProps[]>) {
                 {item.attributes.hero.CTA}
               </a>
             </div>
-            <div className="md:w-1/2">
+            <div className="p-4 md:pt-12">
               <img
                 src={imageUrl}
+                // src="/assets/radiant-hero-600.png"
                 alt={item.attributes.heroimage.data.attributes.alternativeText}
-                className="w-full h-auto md:h-full"
+                // className="w-full md:h-full rounded"
+                className="w-full h-full md:w-[600px] md:h-[600px] rounded"
               />
             </div>
           </div>
